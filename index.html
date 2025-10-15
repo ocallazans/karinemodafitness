@@ -1,301 +1,242 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karine Moda Fitness - Elegância e Performance</title>
+    <title>Karine Moda Fitness - Catálogo de Moda Fitness</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F5EDE9; /* Cor de fundo da logo */
-            color: #374151; /* Cinza escuro para texto */
         }
-        .btn-whatsapp {
-            background: #25D366;
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/Bzw7JQG.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .category-btn.active {
+            background-color: #ec4899; /* pink-500 */
             color: white;
-            transition: all 0.3s ease;
-        }
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: scale(1.05);
-        }
-        .card-product {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-product:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        #productModal {
-            transition: opacity 0.3s ease;
-        }
-        .thumbnail-active {
-            border-color: #374151 !important;
+            border-color: #ec4899;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- NÚMERO DE WHATSAPP - ALTERE AQUI -->
-    <script>
-        const phoneNumber = "5511912345678"; // <-- Insira seu número de WhatsApp aqui com o código do país (ex: 55119...)
-    </script>
-
-    <!-- HEADER -->
-    <header class="bg-[#F5EDE9]/90 backdrop-blur-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#">
-                <img src="https://i.imgur.com/pBSjkbP.png" alt="Logo Karine Moda Fitness" class="h-12 w-auto">
+    <!-- Cabeçalho -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900">
+                Karine <span class="text-pink-500">Moda Fitness</span>
             </a>
-            <nav class="hidden md:flex items-center space-x-8 text-gray-700">
-                <a href="#lancamentos" class="hover:text-black transition-colors">Lançamentos</a>
-                <a href="#como-comprar" class="hover:text-black transition-colors">Como Comprar</a>
-                <a href="#contato" class="hover:text-black transition-colors">Contato</a>
-            </nav>
-            <a href="#" onclick="openWhatsApp('Olá! Gostaria de conhecer mais sobre os produtos.')" class="btn-whatsapp px-4 py-2 rounded-full flex items-center space-x-2">
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
-                <span class="font-semibold">Atendimento</span>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#catalogo" class="text-gray-600 hover:text-pink-500 transition duration-300">Catálogo</a>
+                <div class="border-l border-gray-300 h-8"></div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-semibold text-gray-700 self-center">Contato</span>
+                    <div class="flex items-center space-x-4 mt-1">
+                        <a href="https://www.instagram.com/karinemfit?igsh=OWJ4amdhbWl1M2dn" target="_blank" class="text-gray-500 hover:text-pink-500 transition duration-300" aria-label="Link para o Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.898 4.898 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.248.638-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.217 1.79.465 2.428a4.898 4.898 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.638.248 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.217 2.428-.465a4.898 4.898 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.248-.638.415-1.363.465-2.428C21.99 15.056 22 14.717 22 12s-.01-3.056-.06-4.122c-.05-1.065-.217-1.79-.465-2.428a4.898 4.898 0 00-1.153-1.772 4.902 4.902 0 00-1.772-1.153c-.638-.248-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2zm0 1.8c2.649 0 2.952.01 3.996.058.974.045 1.505.207 1.858.344.466.182.799.399 1.15.748.35.351.566.684.748 1.15.137.353.3.884.344 1.858.048 1.044.058 1.347.058 3.996s-.01 2.952-.058 3.996c-.045.974-.207 1.505-.344 1.858a3.097 3.097 0 01-.748 1.15 3.097 3.097 0 01-1.15.748c-.353.137-.884.3-1.858.344-1.044.048-1.347.058-3.996.058s-2.952-.01-3.996-.058c-.974-.045-1.505-.207-1.858-.344a3.097 3.097 0 01-1.15-.748 3.097 3.097 0 01-.748-1.15c-.137-.353-.3-.884-.344-1.858C4.01 15.048 4 14.653 4 12s.01-2.952.058-3.996c.045-.974.207-1.505.344-1.858.182-.466.399-.799.748-1.15.351-.35.684-.566 1.15-.748.353-.137.884-.3 1.858-.344C9.048 4.01 9.347 4 12 4zm0 4.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm0 1.5a2.25 2.25 0 110 4.5 2.25 2.25 0 010-4.5zM16.5 6.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
+                        </a>
+                        <a href="https://wa.me/5581993861408?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" class="text-gray-500 hover:text-pink-500 transition duration-300" aria-label="Link para o WhatsApp">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.06 1.23 4.79 1.23h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.5 15.3c-.28-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.28-.71.89-.87 1.08-.16.18-.32.21-.59.06-.28-.14-1.17-.43-2.23-1.38-.83-.73-1.38-1.63-1.54-1.91-.16-.28-.01-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.23-.55-.46-.48-.61-.48h-.4c-.18 0-.46.05-.7.28-.23.23-.87.84-.87 2.05 0 1.2.89 2.37 1.01 2.55.12.18 1.75 2.67 4.24 3.75 2.49 1.08 2.49.72 2.94.69.45-.03 1.62-.66 1.85-1.28.23-.61.23-1.14.16-1.28-.07-.14-.25-.21-.52-.35z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#catalogo" class="block py-2 text-gray-600 hover:text-pink-500">Catálogo</a>
+            <div class="border-t border-gray-200 my-2"></div>
+            <span class="block px-2 pt-2 pb-1 text-sm text-gray-500">Contato Direto:</span>
+            <a href="https://www.instagram.com/karinemfit?igsh=OWJ4amdhbWl1M2dn" target="_blank" class="flex items-center gap-3 py-2 pl-2 text-gray-600 hover:text-pink-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.898 4.898 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.248.638-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.217 1.79.465 2.428a4.898 4.898 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.638.248 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.217 2.428-.465a4.898 4.898 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.248-.638.415-1.363.465-2.428C21.99 15.056 22 14.717 22 12s-.01-3.056-.06-4.122c-.05-1.065-.217-1.79-.465-2.428a4.898 4.898 0 00-1.153-1.772 4.902 4.902 0 00-1.772-1.153c-.638-.248-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2zm0 1.8c2.649 0 2.952.01 3.996.058.974.045 1.505.207 1.858.344.466.182.799.399 1.15.748.35.351.566.684.748 1.15.137.353.3.884.344 1.858.048 1.044.058 1.347.058 3.996s-.01 2.952-.058 3.996c-.045.974-.207 1.505-.344 1.858a3.097 3.097 0 01-.748 1.15 3.097 3.097 0 01-1.15.748c-.353.137-.884.3-1.858.344-1.044.048-1.347.058-3.996.058s-2.952-.01-3.996-.058c-.974-.045-1.505-.207-1.858-.344a3.097 3.097 0 01-1.15-.748 3.097 3.097 0 01-.748-1.15c-.137-.353-.3-.884-.344-1.858C4.01 15.048 4 14.653 4 12s.01-2.952.058-3.996c.045-.974.207-1.505.344-1.858.182-.466.399-.799.748-1.15.351-.35.684-.566 1.15-.748.353-.137.884-.3 1.858-.344C9.048 4.01 9.347 4 12 4zm0 4.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm0 1.5a2.25 2.25 0 110 4.5 2.25 2.25 0 010-4.5zM16.5 6.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
+                <span>Instagram</span>
+            </a>
+            <a href="https://wa.me/5581993861408?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" class="flex items-center gap-3 py-2 pl-2 text-gray-600 hover:text-pink-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.06 1.23 4.79 1.23h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.5 15.3c-.28-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.28-.71.89-.87 1.08-.16.18-.32.21-.59.06-.28-.14-1.17-.43-2.23-1.38-.83-.73-1.38-1.63-1.54-1.91-.16-.28-.01-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.23-.55-.46-.48-.61-.48h-.4c-.18 0-.46.05-.7.28-.23.23-.87.84-.87 2.05 0 1.2.89 2.37 1.01 2.55.12.18 1.75 2.67 4.24 3.75 2.49 1.08 2.49.72 2.94.69.45-.03 1.62-.66 1.85-1.28.23-.61.23-1.14.16-1.28-.07-.14-.25-.21-.52-.35z"></path></svg>
+                <span>WhatsApp</span>
             </a>
         </div>
     </header>
 
-    <main class="container mx-auto px-6">
-        <!-- PRODUCTS SECTION -->
-        <section id="lancamentos" class="pt-24 pb-16">
-            <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Nossos Lançamentos</h3>
-            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Os produtos serão inseridos aqui pelo JavaScript -->
-            </div>
-        </section>
+    <!-- Seção Hero -->
+    <section class="hero-bg h-[60vh] md:h-[80vh] flex items-center justify-center text-white text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Performance e Estilo em Cada Treino.</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Peças exclusivas feitas sob encomenda que unem conforto, tecnologia e design para elevar sua performance.</p>
+            <a href="#catalogo" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Ver Catálogo</a>
+        </div>
+    </section>
 
-        <!-- HOW TO BUY SECTION -->
-        <section id="como-comprar" class="py-16">
-            <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Comprar é fácil e rápido!</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-6 mb-4 border-2 border-gray-800">
-                        <i data-lucide="mouse-pointer-square" class="w-10 h-10 text-gray-800"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900">1. Escolha seus looks</h4>
-                    <p class="text-gray-500">Navegue pela nossa coleção e clique para ver os detalhes de cada peça.</p>
+    <!-- Seção Catálogo com Filtros -->
+    <main id="catalogo" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold text-center mb-4">Nosso Catálogo</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Atenção: todas as peças são feitas sob encomenda. Clique em "Encomendar" no produto desejado para finalizar seu pedido pelo WhatsApp.</p>
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button data-category="conjuntos" class="category-btn active text-lg font-semibold py-2 px-6 border-2 border-gray-800 rounded-full transition duration-300 hover:bg-pink-500 hover:text-white hover:border-pink-500">Conjuntos</button>
+            <button data-category="macacao" class="category-btn text-lg font-semibold py-2 px-6 border-2 border-gray-800 rounded-full transition duration-300 hover:bg-pink-500 hover:text-white hover:border-pink-500">Macacão</button>
+            <button data-category="macaquito" class="category-btn text-lg font-semibold py-2 px-6 border-2 border-gray-800 rounded-full transition duration-300 hover:bg-pink-500 hover:text-white hover:border-pink-500">Macaquito</button>
+        </div>
+
+        <!-- Categoria Conjuntos -->
+        <div id="conjuntos" class="category-content">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/Z4BC5id.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Milão</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Milão." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/a4bAVxK.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Berlim</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Berlim." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/EExSUzU.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Andorra</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Andorra." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/wYL0Pup.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Milão</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Milão." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/UTPnJ22.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Runn</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Runn." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/GsNzCRT.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Paris</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Paris." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/LKVu3wY.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Lisboa</h3><p class="text-pink-500 font-bold mb-2">R$ 93,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Lisboa." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/bryT74V.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Veneza</h3><p class="text-pink-500 font-bold mb-2">R$ 93,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Veneza." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/0Tr3NBG.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Doha</h3><p class="text-pink-500 font-bold mb-2">R$ 79,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Doha." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/2GJEAkM.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Cairo</h3><p class="text-pink-500 font-bold mb-2">R$ 93,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Cairo." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/qJbgn7s.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Berlim</h3><p class="text-pink-500 font-bold mb-2">R$ 93,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Conjunto%20Berlim." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/qisbz8r.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Fitness</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20em%20encomendar%20um%20Conjunto%20Fitness." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/zzac7cq.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Conjunto Fitness</h3><p class="text-pink-500 font-bold mb-2">R$ 78,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20em%20encomendar%20um%20Conjunto%20Fitness." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+            </div>
+        </div>
+
+        <!-- Categoria Macacão -->
+        <div id="macacao" class="category-content hidden">
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/Vg6dUof.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macacão Viena</h3><p class="text-pink-500 font-bold mb-2">R$ 85,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macacão%20Viena." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/slbfJH6.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macacão Mônaco</h3><p class="text-pink-500 font-bold mb-2">R$ 85,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macacão%20Mônaco." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/9zAuOLi.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macacão Cairo</h3><p class="text-pink-500 font-bold mb-2">R$ 85,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macacão%20Cairo." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/dYohcbJ.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macacão Riad</h3><p class="text-pink-500 font-bold mb-2">R$ 85,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macacão%20Riad." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+            </div>
+        </div>
+        
+        <!-- Categoria Macaquito -->
+        <div id="macaquito" class="category-content hidden">
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/gwBg918.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macaquito Jacarta</h3><p class="text-pink-500 font-bold mb-2">R$ 80,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macaquito%20Jacarta." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/PSKreJu.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macaquito Sevilha</h3><p class="text-pink-500 font-bold mb-2">R$ 85,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macaquito%20Sevilha." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/A1CgnmH.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macaquito Seul</h3><p class="text-pink-500 font-bold mb-2">R$ 80,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macaquito%20Seul." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/RDz8RJD.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macaquito Bali</h3><p class="text-pink-500 font-bold mb-2">R$ 80,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macaquito%20Bali." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/vXWi45d.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macaquito Tokyo</h3><p class="text-pink-500 font-bold mb-2">R$ 80,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macaquito%20Tokyo." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/gwPeBse.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macaquito Sevilha</h3><p class="text-pink-500 font-bold mb-2">R$ 85,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macaquito%20Sevilha." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col"><img src="https://i.imgur.com/gUQbwcm.jpeg" class="product-image cursor-pointer w-full h-96 object-contain bg-gray-100"><div class="p-4 flex flex-col flex-grow"><h3 class="font-semibold">Macaquito Seul</h3><p class="text-pink-500 font-bold mb-2">R$ 80,90</p><p class="text-xs text-gray-600 mb-4">Consultar cores disponíveis.</p><a href="https://wa.me/5581993861408?text=Olá!%20Tenho%20interesse%20no%20Macaquito%20Seul." target="_blank" class="block w-full text-center bg-pink-500 text-white font-bold py-2 px-4 rounded-lg mt-auto hover:bg-pink-600 transition duration-300">Encomendar</a></div></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="contato" class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold">Karine <span class="text-pink-500">Moda Fitness</span></h3>
+                    <p class="text-gray-400 mt-2">Seu movimento, seu estilo.</p>
                 </div>
-                 <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-6 mb-4 border-2 border-green-500">
-                        <i data-lucide="message-circle" class="w-10 h-10 text-green-500"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900">2. Chame no WhatsApp</h4>
-                    <p class="text-gray-500">Dentro da galeria do produto, clique no botão de compra para falar conosco.</p>
-                </div>
-                 <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-6 mb-4 border-2 border-gray-800">
-                        <i data-lucide="package-check" class="w-10 h-10 text-gray-800"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900">3. Finalize o pedido</h4>
-                    <p class="text-gray-500">Combine o pagamento e a entrega diretamente pelo WhatsApp. Simples assim!</p>
+                <div class="flex space-x-6">
+                     <a href="https://www.instagram.com/karinemfit?igsh=OWJ4amdhbWl1M2dn" target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="Link para o Instagram">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.898 4.898 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.248.638-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.217 1.79.465 2.428a4.898 4.898 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.638.248 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.217 2.428-.465a4.898 4.898 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.248-.638.415-1.363.465-2.428C21.99 15.056 22 14.717 22 12s-.01-3.056-.06-4.122c-.05-1.065-.217-1.79-.465-2.428a4.898 4.898 0 00-1.153-1.772 4.902 4.902 0 00-1.772-1.153c-.638-.248-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2zm0 1.8c2.649 0 2.952.01 3.996.058.974.045 1.505.207 1.858.344.466.182.799.399 1.15.748.35.351.566.684.748 1.15.137.353.3.884.344 1.858.048 1.044.058 1.347.058 3.996s-.01 2.952-.058 3.996c-.045.974-.207 1.505-.344 1.858a3.097 3.097 0 01-.748 1.15 3.097 3.097 0 01-1.15.748c-.353.137-.884.3-1.858.344-1.044.048-1.347.058-3.996.058s-2.952-.01-3.996-.058c-.974-.045-1.505-.207-1.858-.344a3.097 3.097 0 01-1.15-.748 3.097 3.097 0 01-.748-1.15c-.137-.353-.3-.884-.344-1.858C4.01 15.048 4 14.653 4 12s.01-2.952.058-3.996c.045-.974.207-1.505.344-1.858.182-.466.399-.799.748-1.15.351-.35.684-.566 1.15-.748.353-.137.884-.3 1.858-.344C9.048 4.01 9.347 4 12 4zm0 4.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm0 1.5a2.25 2.25 0 110 4.5 2.25 2.25 0 010-4.5zM16.5 6.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="https://wa.me/5581993861408?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" class="text-gray-400 hover:text-white transition duration-300" aria-label="Link para o WhatsApp">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.06 1.23 4.79 1.23h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.5 15.3c-.28-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.28-.71.89-.87 1.08-.16.18-.32.21-.59.06-.28-.14-1.17-.43-2.23-1.38-.83-.73-1.38-1.63-1.54-1.91-.16-.28-.01-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.23-.55-.46-.48-.61-.48h-.4c-.18 0-.46.05-.7.28-.23.23-.87.84-.87 2.05 0 1.2.89 2.37 1.01 2.55.12.18 1.75 2.67 4.24 3.75 2.49 1.08 2.49.72 2.94.69.45-.03 1.62-.66 1.85-1.28.23-.61.23-1.14.16-1.28-.07-.14-.25-.21-.52-.35z"></path></svg>
+                    </a>
                 </div>
             </div>
-        </section>
-    </main>
-    
-    <!-- FOOTER -->
-    <footer id="contato" class="mt-20">
-        <div class="container mx-auto px-6 py-10 text-center">
-             <img src="https://i.imgur.com/pBSjkbP.png" alt="Logo Karine Moda Fitness" class="h-12 w-auto mx-auto">
-             <p class="text-gray-500 mt-4 mb-6">moda fitness</p>
-             <div class="flex justify-center space-x-6">
-                <a href="#" onclick="openWhatsApp('Olá! Vim pelo site e gostaria de tirar uma dúvida.')" class="text-gray-500 hover:text-green-500">
-                    <i data-lucide="message-circle" class="w-7 h-7"></i>
-                </a>
-                 <a href="https://instagram.com" target="_blank" class="text-gray-500 hover:text-black">
-                    <i data-lucide="instagram" class="w-7 h-7"></i>
-                </a>
-             </div>
-             <p class="text-gray-400 text-sm mt-8">&copy; 2025 Karine Moda Fitness. Todos os direitos reservados.</p>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Karine Moda Fitness. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- MODAL DO PRODUTO -->
-    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden relative">
-            <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-black z-10">
-                <i data-lucide="x" class="w-8 h-8"></i>
-            </button>
-            <!-- Galeria de Imagens -->
-            <div class="w-full md:w-1/2 p-4 flex flex-col bg-gray-100">
-                <img id="mainModalImage" src="" alt="Imagem principal do produto" class="w-full h-auto object-contain rounded-md mb-4 flex-grow">
-                <div id="thumbnailContainer" class="flex space-x-2 justify-center">
-                    <!-- Miniaturas geradas pelo JavaScript -->
-                </div>
-            </div>
-            <!-- Detalhes do Produto -->
-            <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
-                <h3 id="modalProductName" class="text-3xl font-bold text-gray-900 mb-4">Nome do Produto</h3>
-                <p id="modalProductDescription" class="text-gray-600 mb-6 h-32 overflow-y-auto">Descrição do produto aqui.</p>
-                <button id="modalWhatsAppButton" class="w-full btn-whatsapp font-bold py-4 px-4 rounded-lg flex items-center justify-center space-x-2 text-lg">
-                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                    <span>Comprar no WhatsApp</span>
-                </button>
-            </div>
+    <!-- Modal para Imagem Ampliada -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 hidden p-4">
+        <div class="relative">
+            <button id="modal-close-button" class="absolute -top-4 -right-4 md:top-0 md:-right-12 text-white text-4xl font-bold focus:outline-none">&times;</button>
+            <img id="modal-image" src="" alt="Imagem do produto ampliada" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg">
         </div>
     </div>
-
-
+    
     <script>
-        lucide.createIcons();
-
-        function openWhatsApp(message) {
-            const encodedMessage = encodeURIComponent(message);
-            const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            window.open(url, '_blank');
-        }
-
-        // --- LÓGICA DO CATÁLOGO E MODAL ---
-
-        // DADOS DOS PRODUTOS (aqui você vai substituir pelas suas imagens e informações)
-        const products = [
-            {
-                id: 1,
-                name: "Legging Performance",
-                description: "Compressão ideal e zero transparência para o máximo conforto e segurança nos seus treinos. Tecido de alta tecnologia que se adapta ao seu corpo.",
-                coverImage: "https://i.imgur.com/uoV3E48.jpeg",
-                gallery: [
-                    "https://i.imgur.com/uoV3E48.jpeg",
-                    "https://i.imgur.com/Bzw7JQG.jpeg",
-                    "https://i.imgur.com/qz8gxX1.jpeg",
-                    "https://i.imgur.com/zgyllfM.jpeg",
-                    "https://i.imgur.com/z8XqxBI.jpeg",
-                    "https://i.imgur.com/MPO4xGO.jpeg",
-                    "https://i.imgur.com/i1NUuKX.jpeg",
-                    "https://i.imgur.com/ngXesT7.jpeg",
-                    "https://i.imgur.com/esvZmvx.jpeg"
-                ]
-            },
-            {
-                id: 2,
-                name: "Top Impacto Cruzado",
-                description: "Alta sustentação com um design moderno nas costas. Perfeito para atividades de alto impacto, garantindo estilo e funcionalidade.",
-                coverImage: "https://placehold.co/400x500/e2d6d1/374151?text=Top",
-                gallery: [
-                    "https://placehold.co/600x800/e2d6d1/374151?text=Frente",
-                    "https://placehold.co/600x800/d8c8c2/374151?text=Costas",
-                    "https://placehold.co/600x800/cfbab4/374151?text=Lado"
-                ]
-            },
-            {
-                id: 3,
-                name: "Shorts Agility Pro",
-                description: "Leveza e liberdade para seus movimentos. O shorts ideal para corridas e treinos funcionais, com tecido respirável e de secagem rápida.",
-                coverImage: "https://placehold.co/400x500/e2d6d1/374151?text=Shorts",
-                gallery: [
-                    "https://placehold.co/600x800/e2d6d1/374151?text=Imagem+1",
-                    "https://placehold.co/600x800/d8c8c2/374151?text=Imagem+2"
-                ]
-            },
-            {
-                id: 4,
-                name: "Conjunto Vibe Color",
-                description: "Estilo e conforto para treinar ou relaxar. Um conjunto versátil que une performance e um visual incrível para você arrasar dentro e fora da academia.",
-                coverImage: "https://placehold.co/400x500/e2d6d1/374151?text=Conjunto",
-                gallery: [
-                    "https://placehold.co/600x800/e2d6d1/374151?text=Completo",
-                    "https://placehold.co/600x800/d8c8c2/374151?text=Detalhe+Top",
-                    "https://placehold.co/600x800/cfbab4/374151?text=Detalhe+Legging"
-                ]
-            }
-        ];
-
-        const productGrid = document.getElementById('product-grid');
-        const modal = document.getElementById('productModal');
-        const mainModalImage = document.getElementById('mainModalImage');
-        const thumbnailContainer = document.getElementById('thumbnailContainer');
-        const modalProductName = document.getElementById('modalProductName');
-        const modalProductDescription = document.getElementById('modalProductDescription');
-        const modalWhatsAppButton = document.getElementById('modalWhatsAppButton');
-        let currentThumbnails = [];
-
-        function renderProducts() {
-            productGrid.innerHTML = '';
-            products.forEach(product => {
-                const productCard = `
-                <div onclick="openModal(${product.id})" class="card-product bg-white rounded-lg overflow-hidden group cursor-pointer">
-                    <img src="${product.coverImage}" alt="${product.name}" class="w-full h-96 object-cover">
-                    <div class="p-5 text-center">
-                        <h4 class="text-lg font-semibold text-gray-800">${product.name}</h4>
-                        <p class="text-gray-500 text-sm mt-1">Ver detalhes</p>
-                    </div>
-                </div>
-                `;
-                productGrid.innerHTML += productCard;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navegação suave para âncoras
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
             });
-        }
-        
-        function openModal(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
 
-            modalProductName.textContent = product.name;
-            modalProductDescription.textContent = product.description;
-            mainModalImage.src = product.gallery[0];
-            
-            const message = `Olá! Tenho interesse no produto: ${product.name}.`;
-            modalWhatsAppButton.setAttribute('onclick', `openWhatsApp('${message}')`);
-
-            thumbnailContainer.innerHTML = '';
-            currentThumbnails = [];
-            product.gallery.forEach((imgSrc, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = imgSrc;
-                thumb.alt = `Thumbnail ${product.name} ${index + 1}`;
-                thumb.className = 'w-16 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-gray-500';
-                thumb.onclick = () => {
-                    mainModalImage.src = imgSrc;
-                    updateActiveThumbnail(index);
-                };
-                thumbnailContainer.appendChild(thumb);
-                currentThumbnails.push(thumb);
+            // Lógica do menu mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-            updateActiveThumbnail(0);
 
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            lucide.createIcons();
-        }
+            // Lógica dos filtros de categoria
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const categoryContents = document.querySelectorAll('.category-content');
 
-        function updateActiveThumbnail(activeIndex) {
-            currentThumbnails.forEach((thumb, index) => {
-                if (index === activeIndex) {
-                    thumb.classList.add('thumbnail-active');
-                } else {
-                    thumb.classList.remove('thumbnail-active');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetCategory = button.dataset.category;
+
+                    // Atualiza o estado ativo dos botões
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Mostra/Esconde o conteúdo da categoria
+                    categoryContents.forEach(content => {
+                        if (content.id === targetCategory) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Lógica da modal de imagem
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeModalButton = document.getElementById('modal-close-button');
+            const productImages = document.querySelectorAll('.product-image');
+
+            productImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    modalImage.src = img.src;
+                    imageModal.classList.remove('hidden');
+                });
+            });
+
+            const closeModal = () => {
+                imageModal.classList.add('hidden');
+                modalImage.src = ""; // Limpa o src para evitar carregamento em segundo plano
+            };
+
+            closeModalButton.addEventListener('click', closeModal);
+
+            // Fecha a modal ao clicar fora da imagem
+            imageModal.addEventListener('click', (e) => {
+                if (e.target === imageModal) {
+                    closeModal();
                 }
             });
-        }
 
-        function closeModal() {
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) closeModal();
+            // Fecha a modal com a tecla Esc
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
         });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-
-        // Inicializa a grade de produtos
-        renderProducts();
-
     </script>
 </body>
 </html>
-
 
