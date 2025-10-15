@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karine Moda Fitness - Elegância e Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5EDE9; /* Cor de fundo da logo */
+            color: #374151; /* Cinza escuro para texto */
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+        .card-product {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        #productModal {
+            transition: opacity 0.3s ease;
+        }
+        .thumbnail-active {
+            border-color: #374151 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NÚMERO DE WHATSAPP - ALTERE AQUI -->
+    <script>
+        const phoneNumber = "5511912345678"; // <-- Insira seu número de WhatsApp aqui com o código do país (ex: 55119...)
+    </script>
+
+    <!-- HEADER -->
+    <header class="bg-[#F5EDE9]/90 backdrop-blur-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#">
+                <img src="https://i.imgur.com/pBSjkbP.png" alt="Logo Karine Moda Fitness" class="h-12 w-auto">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-gray-700">
+                <a href="#lancamentos" class="hover:text-black transition-colors">Lançamentos</a>
+                <a href="#como-comprar" class="hover:text-black transition-colors">Como Comprar</a>
+                <a href="#contato" class="hover:text-black transition-colors">Contato</a>
+            </nav>
+            <a href="#" onclick="openWhatsApp('Olá! Gostaria de conhecer mais sobre os produtos.')" class="btn-whatsapp px-4 py-2 rounded-full flex items-center space-x-2">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span class="font-semibold">Atendimento</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+        <!-- PRODUCTS SECTION -->
+        <section id="lancamentos" class="pt-24 pb-16">
+            <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Nossos Lançamentos</h3>
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Os produtos serão inseridos aqui pelo JavaScript -->
+            </div>
+        </section>
+
+        <!-- HOW TO BUY SECTION -->
+        <section id="como-comprar" class="py-16">
+            <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Comprar é fácil e rápido!</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="bg-white rounded-full p-6 mb-4 border-2 border-gray-800">
+                        <i data-lucide="mouse-pointer-square" class="w-10 h-10 text-gray-800"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-gray-900">1. Escolha seus looks</h4>
+                    <p class="text-gray-500">Navegue pela nossa coleção e clique para ver os detalhes de cada peça.</p>
+                </div>
+                 <div class="flex flex-col items-center">
+                    <div class="bg-white rounded-full p-6 mb-4 border-2 border-green-500">
+                        <i data-lucide="message-circle" class="w-10 h-10 text-green-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-gray-900">2. Chame no WhatsApp</h4>
+                    <p class="text-gray-500">Dentro da galeria do produto, clique no botão de compra para falar conosco.</p>
+                </div>
+                 <div class="flex flex-col items-center">
+                    <div class="bg-white rounded-full p-6 mb-4 border-2 border-gray-800">
+                        <i data-lucide="package-check" class="w-10 h-10 text-gray-800"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-gray-900">3. Finalize o pedido</h4>
+                    <p class="text-gray-500">Combine o pagamento e a entrega diretamente pelo WhatsApp. Simples assim!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer id="contato" class="mt-20">
+        <div class="container mx-auto px-6 py-10 text-center">
+             <img src="https://i.imgur.com/pBSjkbP.png" alt="Logo Karine Moda Fitness" class="h-12 w-auto mx-auto">
+             <p class="text-gray-500 mt-4 mb-6">moda fitness</p>
+             <div class="flex justify-center space-x-6">
+                <a href="#" onclick="openWhatsApp('Olá! Vim pelo site e gostaria de tirar uma dúvida.')" class="text-gray-500 hover:text-green-500">
+                    <i data-lucide="message-circle" class="w-7 h-7"></i>
+                </a>
+                 <a href="https://instagram.com" target="_blank" class="text-gray-500 hover:text-black">
+                    <i data-lucide="instagram" class="w-7 h-7"></i>
+                </a>
+             </div>
+             <p class="text-gray-400 text-sm mt-8">&copy; 2025 Karine Moda Fitness. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DO PRODUTO -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden relative">
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-black z-10">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <!-- Galeria de Imagens -->
+            <div class="w-full md:w-1/2 p-4 flex flex-col bg-gray-100">
+                <img id="mainModalImage" src="" alt="Imagem principal do produto" class="w-full h-auto object-contain rounded-md mb-4 flex-grow">
+                <div id="thumbnailContainer" class="flex space-x-2 justify-center">
+                    <!-- Miniaturas geradas pelo JavaScript -->
+                </div>
+            </div>
+            <!-- Detalhes do Produto -->
+            <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                <h3 id="modalProductName" class="text-3xl font-bold text-gray-900 mb-4">Nome do Produto</h3>
+                <p id="modalProductDescription" class="text-gray-600 mb-6 h-32 overflow-y-auto">Descrição do produto aqui.</p>
+                <button id="modalWhatsAppButton" class="w-full btn-whatsapp font-bold py-4 px-4 rounded-lg flex items-center justify-center space-x-2 text-lg">
+                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                    <span>Comprar no WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        lucide.createIcons();
+
+        function openWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(url, '_blank');
+        }
+
+        // --- LÓGICA DO CATÁLOGO E MODAL ---
+
+        // DADOS DOS PRODUTOS (aqui você vai substituir pelas suas imagens e informações)
+        const products = [
+            {
+                id: 1,
+                name: "Legging Performance",
+                description: "Compressão ideal e zero transparência para o máximo conforto e segurança nos seus treinos. Tecido de alta tecnologia que se adapta ao seu corpo.",
+                coverImage: "https://i.imgur.com/uoV3E48.jpeg",
+                gallery: [
+                    "https://i.imgur.com/uoV3E48.jpeg",
+                    "https://i.imgur.com/Bzw7JQG.jpeg",
+                    "https://i.imgur.com/qz8gxX1.jpeg",
+                    "https://i.imgur.com/zgyllfM.jpeg",
+                    "https://i.imgur.com/z8XqxBI.jpeg",
+                    "https://i.imgur.com/MPO4xGO.jpeg",
+                    "https://i.imgur.com/i1NUuKX.jpeg",
+                    "https://i.imgur.com/ngXesT7.jpeg",
+                    "https://i.imgur.com/esvZmvx.jpeg"
+                ]
+            },
+            {
+                id: 2,
+                name: "Top Impacto Cruzado",
+                description: "Alta sustentação com um design moderno nas costas. Perfeito para atividades de alto impacto, garantindo estilo e funcionalidade.",
+                coverImage: "https://placehold.co/400x500/e2d6d1/374151?text=Top",
+                gallery: [
+                    "https://placehold.co/600x800/e2d6d1/374151?text=Frente",
+                    "https://placehold.co/600x800/d8c8c2/374151?text=Costas",
+                    "https://placehold.co/600x800/cfbab4/374151?text=Lado"
+                ]
+            },
+            {
+                id: 3,
+                name: "Shorts Agility Pro",
+                description: "Leveza e liberdade para seus movimentos. O shorts ideal para corridas e treinos funcionais, com tecido respirável e de secagem rápida.",
+                coverImage: "https://placehold.co/400x500/e2d6d1/374151?text=Shorts",
+                gallery: [
+                    "https://placehold.co/600x800/e2d6d1/374151?text=Imagem+1",
+                    "https://placehold.co/600x800/d8c8c2/374151?text=Imagem+2"
+                ]
+            },
+            {
+                id: 4,
+                name: "Conjunto Vibe Color",
+                description: "Estilo e conforto para treinar ou relaxar. Um conjunto versátil que une performance e um visual incrível para você arrasar dentro e fora da academia.",
+                coverImage: "https://placehold.co/400x500/e2d6d1/374151?text=Conjunto",
+                gallery: [
+                    "https://placehold.co/600x800/e2d6d1/374151?text=Completo",
+                    "https://placehold.co/600x800/d8c8c2/374151?text=Detalhe+Top",
+                    "https://placehold.co/600x800/cfbab4/374151?text=Detalhe+Legging"
+                ]
+            }
+        ];
+
+        const productGrid = document.getElementById('product-grid');
+        const modal = document.getElementById('productModal');
+        const mainModalImage = document.getElementById('mainModalImage');
+        const thumbnailContainer = document.getElementById('thumbnailContainer');
+        const modalProductName = document.getElementById('modalProductName');
+        const modalProductDescription = document.getElementById('modalProductDescription');
+        const modalWhatsAppButton = document.getElementById('modalWhatsAppButton');
+        let currentThumbnails = [];
+
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            products.forEach(product => {
+                const productCard = `
+                <div onclick="openModal(${product.id})" class="card-product bg-white rounded-lg overflow-hidden group cursor-pointer">
+                    <img src="${product.coverImage}" alt="${product.name}" class="w-full h-96 object-cover">
+                    <div class="p-5 text-center">
+                        <h4 class="text-lg font-semibold text-gray-800">${product.name}</h4>
+                        <p class="text-gray-500 text-sm mt-1">Ver detalhes</p>
+                    </div>
+                </div>
+                `;
+                productGrid.innerHTML += productCard;
+            });
+        }
+        
+        function openModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            modalProductName.textContent = product.name;
+            modalProductDescription.textContent = product.description;
+            mainModalImage.src = product.gallery[0];
+            
+            const message = `Olá! Tenho interesse no produto: ${product.name}.`;
+            modalWhatsAppButton.setAttribute('onclick', `openWhatsApp('${message}')`);
+
+            thumbnailContainer.innerHTML = '';
+            currentThumbnails = [];
+            product.gallery.forEach((imgSrc, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.alt = `Thumbnail ${product.name} ${index + 1}`;
+                thumb.className = 'w-16 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-gray-500';
+                thumb.onclick = () => {
+                    mainModalImage.src = imgSrc;
+                    updateActiveThumbnail(index);
+                };
+                thumbnailContainer.appendChild(thumb);
+                currentThumbnails.push(thumb);
+            });
+            updateActiveThumbnail(0);
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function updateActiveThumbnail(activeIndex) {
+            currentThumbnails.forEach((thumb, index) => {
+                if (index === activeIndex) {
+                    thumb.classList.add('thumbnail-active');
+                } else {
+                    thumb.classList.remove('thumbnail-active');
+                }
+            });
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // Inicializa a grade de produtos
+        renderProducts();
+
+    </script>
+</body>
+</html>
+
+
