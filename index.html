@@ -2,7 +2,7 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>Karine Moda Fitness - Catálogo de Moda Fitness</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
             font-family: 'Inter', sans-serif;
         }
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/Bzw7JQG.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/a4bAVxK.jpeg');
             background-size: cover;
             background-position: center;
         }
@@ -32,6 +32,7 @@
             <a href="#" class="text-2xl font-bold text-gray-900">
                 Karine <span class="text-pink-500">Moda Fitness</span>
             </a>
+            <!-- Menu Desktop -->
             <div class="hidden md:flex items-center space-x-6">
                 <a href="#catalogo" class="text-gray-600 hover:text-pink-500 transition duration-300">Catálogo</a>
                 <div class="border-l border-gray-300 h-8"></div>
@@ -47,23 +48,22 @@
                     </div>
                 </div>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <!-- Menu e Contatos Mobile -->
+            <div class="flex items-center space-x-4 md:hidden">
+                <a href="https://www.instagram.com/karinemfit?igsh=OWJ4amdhbWl1M2dn" target="_blank" class="text-gray-500 hover:text-pink-500 transition duration-300" aria-label="Link para o Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.898 4.898 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.248.638-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.217 1.79.465 2.428a4.898 4.898 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.638.248 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.217 2.428-.465a4.898 4.898 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.248-.638.415-1.363.465-2.428C21.99 15.056 22 14.717 22 12s-.01-3.056-.06-4.122c-.05-1.065-.217-1.79-.465-2.428a4.898 4.898 0 00-1.153-1.772 4.902 4.902 0 00-1.772-1.153c-.638-.248-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2zm0 1.8c2.649 0 2.952.01 3.996.058.974.045 1.505.207 1.858.344.466.182.799.399 1.15.748.35.351.566.684.748 1.15.137.353.3.884.344 1.858.048 1.044.058 1.347.058 3.996s-.01 2.952-.058 3.996c-.045.974-.207 1.505-.344 1.858a3.097 3.097 0 01-.748 1.15 3.097 3.097 0 01-1.15.748c-.353.137-.884.3-1.858.344-1.044.048-1.347.058-3.996.058s-2.952-.01-3.996-.058c-.974-.045-1.505-.207-1.858-.344a3.097 3.097 0 01-1.15-.748 3.097 3.097 0 01-.748-1.15c-.137-.353-.3-.884-.344-1.858C4.01 15.048 4 14.653 4 12s.01-2.952.058-3.996c.045-.974.207-1.505.344-1.858.182-.466.399-.799.748-1.15.351-.35.684-.566 1.15-.748.353-.137.884-.3 1.858-.344C9.048 4.01 9.347 4 12 4zm0 4.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm0 1.5a2.25 2.25 0 110 4.5 2.25 2.25 0 010-4.5zM16.5 6.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="https://wa.me/5581993861408?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" class="text-gray-500 hover:text-pink-500 transition duration-300" aria-label="Link para o WhatsApp">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.06 1.23 4.79 1.23h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.5 15.3c-.28-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.28-.71.89-.87 1.08-.16.18-.32.21-.59.06-.28-.14-1.17-.43-2.23-1.38-.83-.73-1.38-1.63-1.54-1.91-.16-.28-.01-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.23-.55-.46-.48-.61-.48h-.4c-.18 0-.46.05-.7.28-.23.23-.87.84-.87 2.05 0 1.2.89 2.37 1.01 2.55.12.18 1.75 2.67 4.24 3.75 2.49 1.08 2.49.72 2.94.69.45-.03 1.62-.66 1.85-1.28.23-.61.23-1.14.16-1.28-.07-.14-.25-.21-.52-.35z"></path></svg>
+                </a>
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </nav>
-        <!-- Menu Mobile -->
+        <!-- Menu Mobile Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#catalogo" class="block py-2 text-gray-600 hover:text-pink-500">Catálogo</a>
-            <div class="border-t border-gray-200 my-2"></div>
-            <span class="block px-2 pt-2 pb-1 text-sm text-gray-500">Contato Direto:</span>
-            <a href="https://www.instagram.com/karinemfit?igsh=OWJ4amdhbWl1M2dn" target="_blank" class="flex items-center gap-3 py-2 pl-2 text-gray-600 hover:text-pink-500">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.898 4.898 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.248.638-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.217 1.79.465 2.428a4.898 4.898 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.638.248 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.217 2.428-.465a4.898 4.898 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.248-.638.415-1.363.465-2.428C21.99 15.056 22 14.717 22 12s-.01-3.056-.06-4.122c-.05-1.065-.217-1.79-.465-2.428a4.898 4.898 0 00-1.153-1.772 4.902 4.902 0 00-1.772-1.153c-.638-.248-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2zm0 1.8c2.649 0 2.952.01 3.996.058.974.045 1.505.207 1.858.344.466.182.799.399 1.15.748.35.351.566.684.748 1.15.137.353.3.884.344 1.858.048 1.044.058 1.347.058 3.996s-.01 2.952-.058 3.996c-.045.974-.207 1.505-.344 1.858a3.097 3.097 0 01-.748 1.15 3.097 3.097 0 01-1.15.748c-.353.137-.884.3-1.858.344-1.044.048-1.347.058-3.996.058s-2.952-.01-3.996-.058c-.974-.045-1.505-.207-1.858-.344a3.097 3.097 0 01-1.15-.748 3.097 3.097 0 01-.748-1.15c-.137-.353-.3-.884-.344-1.858C4.01 15.048 4 14.653 4 12s.01-2.952.058-3.996c.045-.974.207-1.505.344-1.858.182-.466.399-.799.748-1.15.351-.35.684-.566 1.15-.748.353-.137.884-.3 1.858-.344C9.048 4.01 9.347 4 12 4zm0 4.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm0 1.5a2.25 2.25 0 110 4.5 2.25 2.25 0 010-4.5zM16.5 6.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
-                <span>Instagram</span>
-            </a>
-            <a href="https://wa.me/5581993861408?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" class="flex items-center gap-3 py-2 pl-2 text-gray-600 hover:text-pink-500">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.06 1.23 4.79 1.23h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.5 15.3c-.28-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.28-.71.89-.87 1.08-.16.18-.32.21-.59.06-.28-.14-1.17-.43-2.23-1.38-.83-.73-1.38-1.63-1.54-1.91-.16-.28-.01-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.23-.55-.46-.48-.61-.48h-.4c-.18 0-.46.05-.7.28-.23.23-.87.84-.87 2.05 0 1.2.89 2.37 1.01 2.55.12.18 1.75 2.67 4.24 3.75 2.49 1.08 2.49.72 2.94.69.45-.03 1.62-.66 1.85-1.28.23-.61.23-1.14.16-1.28-.07-.14-.25-.21-.52-.35z"></path></svg>
-                <span>WhatsApp</span>
-            </a>
         </div>
     </header>
 
